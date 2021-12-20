@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {
   PublicClientApplication,
@@ -34,9 +34,22 @@ msalInstance.addEventCallback((event: EventMessage) => {
   if (event.eventType === EventType.LOGIN_SUCCESS && event.payload) {
     // Set the active account - this simplifies token acquisition
     const authResult = event.payload as AuthenticationResult;
+    console.log(event.payload)
+    //@ts-ignore
+    const token = event.payload.accessToken
+    localStorage.setItem("auth", token)
     msalInstance.setActiveAccount(authResult.account);
   }
 });
+
+const Auth = () =>{
+
+  useEffect(()=>{
+
+  },[])
+
+
+}
 // </MsalInstanceSnippet>
 
 // <RenderSnippet>

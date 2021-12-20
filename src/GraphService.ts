@@ -97,9 +97,9 @@ export async function createEvent(authProvider: AuthCodeMSALBrowserAuthenticatio
 }
 // </CreateEventSnippet>
 export async function getCeoMessage(
-  authProvider: AuthCodeMSALBrowserAuthenticationProvider
+  // authProvider: AuthCodeMSALBrowserAuthenticationProvider
 ) {
-  ensureClient(authProvider);
+  // ensureClient(authProvider);
 
   var response = await graphClient!
       // .api(
@@ -107,7 +107,9 @@ export async function getCeoMessage(
       //         "{list_id}",
       //         listId
       //     )
-      .api('sites/tmxin.sharepoint.com,1649e6fd-df59-4f03-8e4b-4d765864f406,d2634703-c0cd-42f6-bfb5-c60555dbcb7d/lists/b8771df7-e108-41c0-ab73-5f84ac930d24/items?$expand=fields')
+      // .api('sites/tmxin.sharepoint.com,1649e6fd-df59-4f03-8e4b-4d765864f406,d2634703-c0cd-42f6-bfb5-c60555dbcb7d/lists/b8771df7-e108-41c0-ab73-5f84ac930d24/items?$expand=fields')
+      .api('https://tmxin.sharepoint.com/sites/dpwIntranet/DPWorldAssetLib/sps_farm.png')
       .get();
+
   return response;
 }
